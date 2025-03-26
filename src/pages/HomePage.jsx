@@ -13,7 +13,7 @@ const HomePage = () => {
 
   // Загрузка данных из public/data/topics.json
   useEffect(() => {
-    fetch('/data/topics.json')
+    fetch(process.env.PUBLIC_URL + '/data/topics.json')
       .then((response) => response.json())
       .then((data) => {
         setAllData(data);
