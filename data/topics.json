@@ -1,0 +1,242 @@
+[
+  {
+    "date": "2023-10-01",
+    "topic": "Качество видео",
+    "subtopic": "Чёткость изображения",
+    "sentiment": "positive",
+    "x": 0.12,
+    "y": 0.45
+  },
+  {
+    "date": "2023-10-01",
+    "topic": "Автор",
+    "subtopic": "Харизма",
+    "sentiment": "positive",
+    "x": 0.02,
+    "y": 0.99
+  },
+  {
+    "date": "2023-10-02",
+    "topic": "Качество видео",
+    "subtopic": "Чёткость изображения",
+    "sentiment": "positive",
+    "x": -0.34,
+    "y": 0.78
+  },
+  {
+    "date": "2023-10-03",
+    "topic": "Качество видео",
+    "subtopic": "Чёткость изображения",
+    "sentiment": "positive",
+    "x": 0.56,
+    "y": -0.23
+  },
+  {
+    "date": "2023-10-04",
+    "topic": "Качество видео",
+    "subtopic": "Чёткость изображения",
+    "sentiment": "positive",
+    "x": -0.67,
+    "y": -0.89
+  },
+  {
+    "date": "2023-10-05",
+    "topic": "Качество видео",
+    "subtopic": "Чёткость изображения",
+    "sentiment": "positive",
+    "x": 0.89,
+    "y": 0.12
+  },
+  {
+    "date": "2023-10-06",
+    "topic": "Качество видео",
+    "subtopic": "Чёткость изображения",
+    "sentiment": "positive",
+    "x": -0.45,
+    "y": 0.34
+  },
+  {
+    "date": "2023-10-07",
+    "topic": "Качество видео",
+    "subtopic": "Чёткость изображения",
+    "sentiment": "positive",
+    "x": 0.23,
+    "y": -0.56
+  },
+  {
+    "date": "2023-10-08",
+    "topic": "Качество видео",
+    "subtopic": "Чёткость изображения",
+    "sentiment": "positive",
+    "x": -0.78,
+    "y": 0.67
+  },
+  {
+    "date": "2023-10-09",
+    "topic": "Качество видео",
+    "subtopic": "Чёткость изображения",
+    "sentiment": "positive",
+    "x": 0.34,
+    "y": -0.12
+  },
+  {
+    "date": "2023-10-10",
+    "topic": "Качество видео",
+    "subtopic": "Реалистичность",
+    "sentiment": "positive",
+    "x": -0.56,
+    "y": 0.89
+  },
+  {
+    "date": "2023-10-11",
+    "topic": "Качество видео",
+    "subtopic": "Шумы",
+    "sentiment": "negative",
+    "x": 0.78,
+    "y": -0.34
+  },
+  {
+    "date": "2023-10-12",
+    "topic": "Качество видео",
+    "subtopic": "Шумы",
+    "sentiment": "negative",
+    "x": -0.12,
+    "y": 0.56
+  },
+  {
+    "date": "2023-10-13",
+    "topic": "Качество видео",
+    "subtopic": "Чёткость изображения",
+    "sentiment": "negative",
+    "x": 0.45,
+    "y": -0.78
+  },
+  {
+    "date": "2023-10-14",
+    "topic": "Звук",
+    "subtopic": "Громкость",
+    "sentiment": "negative",
+    "x": -0.89,
+    "y": 0.23
+  },
+  {
+    "date": "2023-10-15",
+    "topic": "Звук",
+    "subtopic": "Чистота звука",
+    "sentiment": "negative",
+    "x": 0.67,
+    "y": -0.45
+  },
+  {
+    "date": "2023-10-16",
+    "topic": "Звук",
+    "subtopic": "Басы",
+    "sentiment": "negative",
+    "x": -0.23,
+    "y": 0.67
+  },
+  {
+    "date": "2023-10-17",
+    "topic": "Звук",
+    "subtopic": "Высокие частоты",
+    "sentiment": "negative",
+    "x": 0.56,
+    "y": -0.89
+  },
+  {
+    "date": "2023-10-18",
+    "topic": "Звук",
+    "subtopic": "Шумоизоляция",
+    "sentiment": "negative",
+    "x": -0.78,
+    "y": 0.12
+  },
+  {
+    "date": "2023-10-19",
+    "topic": "Звук",
+    "subtopic": "Синхронизация",
+    "sentiment": "negative",
+    "x": 0.34,
+    "y": -0.56
+  },
+  {
+    "date": "2023-10-20",
+    "topic": "Звук",
+    "subtopic": "Эффекты",
+    "sentiment": "negative",
+    "x": -0.45,
+    "y": 0.78
+  },
+  {
+    "date": "2023-10-21",
+    "topic": "Звук",
+    "subtopic": "Диалоги",
+    "sentiment": "negative",
+    "x": 0.89,
+    "y": -0.23
+  },
+  {
+    "date": "2023-10-22",
+    "topic": "Звук",
+    "subtopic": "Музыка",
+    "sentiment": "negative",
+    "x": -0.12,
+    "y": 0.45
+  },
+  {
+    "date": "2023-10-23",
+    "topic": "Звук",
+    "subtopic": "Звуковые переходы",
+    "sentiment": "negative",
+    "x": 0.67,
+    "y": -0.78
+  },
+  {
+    "date": "2023-10-24",
+    "topic": "Звук",
+    "subtopic": "Объемный звук",
+    "sentiment": "negative",
+    "x": -0.34,
+    "y": 0.56
+  },
+  {
+    "date": "2023-10-25",
+    "topic": "Звук",
+    "subtopic": "Микрофонный шум",
+    "sentiment": "negative",
+    "x": 0.78,
+    "y": -0.12
+  },
+  {
+    "date": "2023-10-26",
+    "topic": "Звук",
+    "subtopic": "Эхо",
+    "sentiment": "negative",
+    "x": -0.56,
+    "y": 0.89
+  },
+  {
+    "date": "2023-10-27",
+    "topic": "Звук",
+    "subtopic": "Качество записи",
+    "sentiment": "negative",
+    "x": 0.23,
+    "y": -0.45
+  },
+  {
+    "date": "2023-10-28",
+    "topic": "Звук",
+    "subtopic": "Сбалансированность",
+    "sentiment": "negative",
+    "x": -0.89,
+    "y": 0.34
+  },
+  {
+    "date": "2023-10-29",
+    "topic": "Звук",
+    "subtopic": "Чистота высоких частот",
+    "sentiment": "positive",
+    "x": 0.45,
+    "y": -0.67
+  }
+]
