@@ -6,7 +6,7 @@ import './styles/global.css';
 
 const App = () => {
   return (
-    <Router>
+    <Router basename="/First-react-project">
       <div className="app-container">
         <header className="app-header">
           <nav>

@@ -1,4 +1,4 @@
 export const fetchTopics = async () => {
-  const response = await fetch('/data/topics.json');
+  const response = await fetch(process.env.PUBLIC_URL + '/data/topics.json');
   return response.json();
 };
