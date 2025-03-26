@@ -20,9 +20,6 @@ ChartJS.register(
 );
 
 const SubtopicChart = ({ subtopics }) => {
-  console.log('Подтемы в SubtopicChart:', subtopics); // Проверьте, что подтемы передаются правильно
-
-  // Агрегируем данные по подтемам
   const aggregatedData = subtopics.reduce((acc, item) => {
     if (!acc[item.subtopic]) {
       acc[item.subtopic] = { positive: 0, negative: 0 };
@@ -35,49 +32,46 @@ const SubtopicChart = ({ subtopics }) => {
     return acc;
   }, {});
 
-  // Преобразуем агрегированные данные в массивы для графика
   const labels = Object.keys(aggregatedData);
   const positiveData = labels.map((label) => aggregatedData[label].positive);
-  const negativeData = labels.map((label) => -aggregatedData[label].negative); // Отрицательные значения для негативных оценок
+  const negativeData = labels.map((label) => -aggregatedData[label].negative);
 
-  // Данные для графика
   const data = {
-    labels: labels, // Названия подтем
+    labels: labels,
     datasets: [
       {
-        label: 'Позитивные', // Позитивные оценки
+        label: 'Позитивные',
         data: positiveData,
-        backgroundColor: 'green', // Цвет для позитивных оценок
+        backgroundColor: 'green',
       },
       {
-        label: 'Негативные', // Негативные оценки
+        label: 'Негативные',
         data: negativeData,
-        backgroundColor: 'red', // Цвет для негативных оценок
+        backgroundColor: 'red',
       },
     ],
   };
 
-  // Настройки графика
   const options = {
     scales: {
       x: {
         stacked: true,
-        display: false, // Показываем названия подтем на оси X
+        display: false,
       },
       y: {
         beginAtZero: true,
         ticks: {
           stepSize: 1,
-          callback: (value) => Math.abs(value), // Отображаем абсолютные значения
+          callback: (value) => Math.abs(value),
         },
       },
     },
     plugins: {
       legend: {
-        display: false, // Скрываем легенду
+        display: false,
       },
       title: {
-        display: false, // Скрываем заголовок
+        display: false,
         text: 'Распределение оценок по подтемам',
       },
       tooltip: {

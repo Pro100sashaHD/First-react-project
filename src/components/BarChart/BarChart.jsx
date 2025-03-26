@@ -20,9 +20,6 @@ ChartJS.register(
 );
 
 const BarChart = ({ data, onTopicClick }) => {
-  console.log('Данные в BarChart:', data); // Проверьте, что данные передаются правильно
-
-  // Группируем данные по темам
   const groupedData = data.reduce((acc, item) => {
     if (!acc[item.topic]) {
       acc[item.topic] = { positive: 0, negative: 0 };
@@ -35,19 +32,18 @@ const BarChart = ({ data, onTopicClick }) => {
     return acc;
   }, {});
 
-  // Данные для графика
   const chartData = {
-    labels: Object.keys(groupedData), // Названия тем
+    labels: Object.keys(groupedData),
     datasets: [
       {
-        label: 'Позитивные', // Позитивные комментарии
+        label: 'Позитивные',
         data: Object.values(groupedData).map((topic) => topic.positive),
-        backgroundColor: 'green', // Цвет для позитивных комментариев
+        backgroundColor: 'green',
       },
       {
-        label: 'Негативные', // Негативные комментарии
-        data: Object.values(groupedData).map((topic) => -topic.negative), // Отрицательные значения
-        backgroundColor: 'red', // Цвет для негативных комментариев
+        label: 'Негативные',
+        data: Object.values(groupedData).map((topic) => -topic.negative),
+        backgroundColor: 'red',
       },
     ],
   };

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import BarChart from '../components/BarChart/BarChart';
 import SubtopicChart from '../components/SubtopicChart/SubtopicChart';
 import DateSlider from '../components/DateSlider/DateSlider';
+import { fetchTopics } from '../API/api';
 import '../styles/global.css';
 
 const HomePage = () => {
@@ -9,47 +10,39 @@ const HomePage = () => {
   const [filteredData, setFilteredData] = useState([]);
   const [allData, setAllData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [link, setLink] = useState(''); // Состояние для хранения ссылки
+  const [link, setLink] = useState('');
 
-  // Загрузка данных из public/data/topics.json
   useEffect(() => {
-    fetch(process.env.PUBLIC_URL + '/data/topics.json')
-      .then((response) => response.json())
-      .then((data) => {
+    const loadData = async () => {
+      try {
+        setLoading(true);
+        const data = await fetchTopics();
         setAllData(data);
-        setFilteredData(data); // Инициализируем отфильтрованные данные
+        setFilteredData(data);
         setLoading(false);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error('Ошибка при загрузке данных:', error);
         setLoading(false);
-      });
+      }
+    };
+    loadData();
   }, []);
 
-  // Обработчик изменения слайдера
   const handleSliderChange = (value) => {
-    // value — это timestamp выбранной даты
-    const selectedDate = new Date(value).toISOString().split('T')[0]; // Преобразуем в формат YYYY-MM-DD
-
-    // Фильтруем данные: оставляем только те, чья дата меньше или равна выбранной
-    const filtered = allData.filter((item) => item.date <= selectedDate);
-    console.log('Отфильтрованные данные:', filtered); // Проверьте, что данные фильтруются правильно
+    const selectedDate = new Date(value).toISOString().split('T')[0];
+    const filtered = allData.filter(item => item.date <= selectedDate);
     setFilteredData(filtered);
 
-    // Обновляем подтемы для SubtopicChart
     if (subtopics.length > 0) {
-      const filteredSubtopics = filtered.filter((item) =>
-        subtopics.some((sub) => sub.topic === item.topic)
-      );
+      const topic = subtopics[0].topic;
+      const filteredSubtopics = filtered.filter(item => item.topic === topic);
       setSubtopics(filteredSubtopics);
     }
   };
 
-  // Обработчик отправки ссылки
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Отправленная ссылка:', link);
-    // Здесь можно добавить логику для обработки ссылки, например, отправку на сервер
   };
 
   if (loading) {
@@ -59,14 +52,13 @@ const HomePage = () => {
   return (
     <div>
       <h1>Анализ тональности комментариев</h1>
-      <DateSlider
-        dates={allData.map((item) => item.date)}
-        onChange={handleSliderChange}
+      <DateSlider 
+        dates={allData.map(item => item.date)} 
+        onChange={handleSliderChange} 
       />
       <BarChart data={filteredData} onTopicClick={setSubtopics} />
       {subtopics.length > 0 && <SubtopicChart subtopics={subtopics} />}
 
-      {/* Поле для ввода ссылки */}
       <div className="link-input-container">
         <form onSubmit={handleSubmit} className="link-form">
           <input

@@ -22,31 +22,21 @@ const handle = (props) => {
 };
 
 const DateSlider = ({ dates, onChange }) => {
-  // Состояние для текущей даты
   const [currentDate, setCurrentDate] = useState(null);
 
   if (!dates || dates.length === 0) return null;
+  if (dates.length === 1) return null;
 
-  // Уникальные даты, отсортированные по возрастанию
   const uniqueDates = [...new Set(dates)].sort((a, b) => new Date(a) - new Date(b));
+  const timestamps = uniqueDates.map(date => new Date(date).getTime());
+  const step = uniqueDates.length > 40 ? 30 * 24 * 60 * 60 * 1000 : 24 * 60 * 60 * 1000;
 
-  // Если все даты одинаковые, слайдер не отрисовывается
-  if (uniqueDates.length === 1) return null;
-
-  // Преобразуем даты в метки времени (timestamp)
-  const timestamps = uniqueDates.map((date) => new Date(date).getTime());
-
-  // Определяем шаг слайдера
-  const step = uniqueDates.length > 40 ? 30 * 24 * 60 * 60 * 1000 : 24 * 60 * 60 * 1000; // Шаг в днях или месяцах
-
-  // Обработчик изменения слайдера
   const handleChange = (value) => {
     const selectedDate = new Date(value);
-    setCurrentDate(selectedDate); // Обновляем текущую дату
-    onChange(value); // Передаём значение в родительский компонент
+    setCurrentDate(selectedDate);
+    onChange(value);
   };
 
-  // Форматируем метки для отображения
   const formatLabel = (timestamp) => {
     const date = new Date(timestamp);
     if (uniqueDates.length > 40) {
@@ -58,20 +48,19 @@ const DateSlider = ({ dates, onChange }) => {
   return (
     <div style={{ padding: '20px' }}>
       <Slider
-        min={Math.min(...timestamps)} // Минимальная дата
-        max={Math.max(...timestamps)} // Максимальная дата
-        step={step} // Шаг слайдера
-        defaultValue={timestamps[0]} // Начальное значение (первая дата)
-        handle={handle} // Кастомизация ползунка
-        onChange={handleChange} // Обработчик изменения
+        min={Math.min(...timestamps)}
+        max={Math.max(...timestamps)}
+        step={step}
+        defaultValue={timestamps[0]}
+        handle={handle}
+        onChange={handleChange}
         marks={{
-          [timestamps[0]]: formatLabel(timestamps[0]), // Метка для начальной даты
-          [timestamps[timestamps.length - 1]]: formatLabel(timestamps[timestamps.length - 1]), // Метка для конечной даты
+          [timestamps[0]]: formatLabel(timestamps[0]),
+          [timestamps[timestamps.length - 1]]: formatLabel(timestamps[timestamps.length - 1]),
         }}
       />
-      {/* Отображаем текущую дату под слайдером */}
       <div style={{ marginTop: '10px', textAlign: 'center', fontSize: '16px' }}>
-      Выбранная дата: {currentDate ? currentDate.toLocaleDateString('ru-RU') : 'Не выбрана'}
+        Выбранная дата: {currentDate ? currentDate.toLocaleDateString('ru-RU') : 'Не выбрана'}
       </div>
     </div>
   );
